@@ -30,5 +30,5 @@ public class BinaryTree<T>
     {
         Root = null;
     }
-
+    
 }
