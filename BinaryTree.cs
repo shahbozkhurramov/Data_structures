@@ -1,34 +1,53 @@
 namespace Data_structures;
 
-public class TreeNode<T>
+public class TreeNode
 {
-    public T Data { get; set; }
+    public int Data { get; set; }
     
-    public Node<T> Left { get; set; }
+    public TreeNode Left { get; set; }
     
-    public Node<T> Right { get; set; }
+    public TreeNode Right { get; set; }
     
-    public TreeNode(T data)
+    public TreeNode(int data)
     {
         Data = data;
         Left = Right = null;
     }
 }
 
-public class BinaryTree<T>
+public class BinaryTree
 {
-    public Node<T> Root { get; set; }
+    public TreeNode Root { get; set; }
     
     public int Count { get; set; }
     
-    public BinaryTree(T data)
+    public BinaryTree(int data)
     {
-        Root = new Node<T>(data);
+        Root = new TreeNode(data);
+        Count = 1;
     }
 
     public BinaryTree()
     {
         Root = null;
     }
-    
+
+    public void AddNode(TreeNode treeNode, int data)
+    {
+        if(Root == null)
+        {
+            Root = new TreeNode(data);
+            Count++;
+        }
+        else if(data < treeNode.Data)
+        {
+            treeNode.Left = new TreeNode(data);
+            Count++;
+        }
+        else
+        {
+            treeNode.Right = new TreeNode(data);
+            Count++;
+        }
+    }
 }
